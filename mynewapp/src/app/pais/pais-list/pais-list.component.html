@@ -1,0 +1,38 @@
+<header style="background-color: rgb(111, 183, 116); padding: 15px 0;">
+    <nav >
+        <div class="container-fluid">
+            <h1 class="titulo-proyecto" style="display: flex; justify-content: center; font-size: larger; font-family: Arial, sans-serif;  text-align: center; ">Paises del mundo</h1>
+        </div>
+    </nav>
+  </header>
+
+<div class="container" style="margin: 10px;">
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table" id="paises">
+                <thead>
+                    <tr>
+                        <th><b>#</b></th>
+                        <th><b>Nombre</b></th>
+                        <th><b>Capital</b></th>
+                        <th><b>Año de conformacion</b></th>
+                    </tr>
+                </thead> 
+                <tbody class="table-active">
+                  <tr *ngFor="let p of paises" (click)="onSelected(p)" >
+                    <td><b>{{p.id}}</b></td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.capital}}</td>
+                    <td>{{p.formation_year}}</td>
+                  </tr>
+                </tbody>
+
+            </table>
+            <p>{{paisMasAnt}}</p>
+          </div>
+          <div class="col-md-3" *ngIf="selected">
+            <app-pais-detail [paisSeleccionado]="selectedPais"></app-pais-detail>>
+          </div>
+    </div>
+  </div>
+
